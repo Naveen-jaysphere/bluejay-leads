@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TARGET_REGIONS, BUSINESS_INDUSTRIES } from '../data/blueJayData';
+import { US_STATES } from '../data/blueJayData';
 import { QuoteFormData } from '../types';
 import { CheckCircle2, ArrowRight, Clock, ShieldCheck, Lock } from 'lucide-react';
 import { LegalModal, LegalTab } from './LegalModal';
@@ -11,13 +11,12 @@ interface QuoteSectionProps {
 export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) => {
   const [formData, setFormData] = useState<QuoteFormData>({
     name: '',
-    companyName: '',
+    firm: '',
     workEmail: '',
     phone: '',
-    targetRegion: 'Nationwide (All 50 US States)',
-    industry: 'B2B & Professional Services',
-    monthlyVolume: '25–75 leads / month',
-    notes: preselectedPlan ? `Interested in: ${preselectedPlan}` : ''
+    primaryState: '',
+    monthlyVolume: '',
+    caseTypesAndCriteria: preselectedPlan ? `Target tier: ${preselectedPlan}` : ''
   });
 
   const [tcpaConsent, setTcpaConsent] = useState(true);
@@ -33,6 +32,14 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.primaryState) {
+      alert('Please select your primary state.');
+      return;
+    }
+    if (!formData.monthlyVolume.trim()) {
+      alert('Please enter your target monthly volume.');
+      return;
+    }
     if (!tcpaConsent) {
       alert('Please confirm your consent to be contacted under our TCPA compliance protocol.');
       return;
@@ -114,7 +121,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                   </div>
                   <h3 className="text-2xl font-black text-[#0A1938]">Request Received</h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-[#0A1938]">{formData.name}</strong>. We are compiling available capacity and per-lead pricing for <strong className="text-[#0A1938]">{formData.companyName || 'your business'}</strong> in <strong className="text-[#0A1938]">{formData.targetRegion}</strong>.
+                    Thank you, <strong className="text-[#0A1938]">{formData.name}</strong>. We are compiling available capacity and criteria match for <strong className="text-[#0A1938]">{formData.firm || 'your firm'}</strong> in <strong className="text-[#0A1938]">{formData.primaryState || 'your primary state'}</strong>.
                   </p>
                   <p className="text-xs text-[#0052FF] font-mono">
                     An account executive will connect at {formData.workEmail} within one business day.
@@ -131,7 +138,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="user-name" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Your Name *
+                        Your name *
                       </label>
                       <input
                         id="user-name"
@@ -139,22 +146,22 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Alex Morgan"
+                        placeholder="Marcus Vance"
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="company-name" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Company Name *
+                      <label htmlFor="firm-name" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Firm *
                       </label>
                       <input
-                        id="company-name"
+                        id="firm-name"
                         type="text"
                         required
-                        value={formData.companyName}
-                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                        placeholder="Acme Growth Inc."
+                        value={formData.firm}
+                        onChange={(e) => setFormData({ ...formData, firm: e.target.value })}
+                        placeholder="Vance Legal Partners"
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                       />
                     </div>
@@ -163,7 +170,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="work-email" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Work Email *
+                        Work email *
                       </label>
                       <input
                         id="work-email"
@@ -171,22 +178,22 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                         required
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
-                        placeholder="alex@acmegrowth.com"
+                        placeholder="marcus@vancelegal.com"
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="work-phone" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Direct Phone *
+                      <label htmlFor="phone" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Phone *
                       </label>
                       <input
-                        id="work-phone"
+                        id="phone"
                         type="tel"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="(555) 345-6789"
+                        placeholder="(555) 249-8103"
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                       />
                     </div>
@@ -194,18 +201,20 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="target-region" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Target Market / Geography
+                      <label htmlFor="primary-state" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                        Primary state *
                       </label>
                       <select
-                        id="target-region"
-                        value={formData.targetRegion}
-                        onChange={(e) => setFormData({ ...formData, targetRegion: e.target.value })}
+                        id="primary-state"
+                        required
+                        value={formData.primaryState}
+                        onChange={(e) => setFormData({ ...formData, primaryState: e.target.value })}
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                       >
-                        {TARGET_REGIONS.map((region) => (
-                          <option key={region} value={region}>
-                            {region}
+                        <option value="" disabled>Select a state</option>
+                        {US_STATES.map((state) => (
+                          <option key={state} value={state}>
+                            {state}
                           </option>
                         ))}
                       </select>
@@ -213,50 +222,31 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
 
                     <div>
                       <label htmlFor="monthly-volume" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                        Target Monthly Volume
+                        Monthly volume *
                       </label>
-                      <select
+                      <input
                         id="monthly-volume"
+                        type="text"
+                        required
                         value={formData.monthlyVolume}
                         onChange={(e) => setFormData({ ...formData, monthlyVolume: e.target.value })}
+                        placeholder="e.g. 50 / month"
                         className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
-                      >
-                        <option value="Under 25 leads / month">Under 25 leads / month</option>
-                        <option value="25–75 leads / month">25–75 leads / month</option>
-                        <option value="75–200 leads / month">75–200 leads / month</option>
-                        <option value="200+ leads / month">200+ leads / month</option>
-                      </select>
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="industry" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Business Industry
-                    </label>
-                    <select
-                      id="industry"
-                      value={formData.industry}
-                      onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                      className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
-                    >
-                      {BUSINESS_INDUSTRIES.map((ind) => (
-                        <option key={ind} value={ind}>
-                          {ind}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="additional-notes" className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Ideal Customer Profile (ICP) & Qualification Criteria (Optional)
+                    <label htmlFor="case-criteria" className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Case types and criteria *
                     </label>
                     <textarea
-                      id="additional-notes"
-                      rows={2}
-                      value={formData.notes}
-                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      placeholder="e.g. Decision maker titles, company size, minimum project spend $5,000, specific zip codes..."
+                      id="case-criteria"
+                      required
+                      rows={3}
+                      value={formData.caseTypesAndCriteria}
+                      onChange={(e) => setFormData({ ...formData, caseTypesAndCriteria: e.target.value })}
+                      placeholder="Commercial trucking & catastrophic injury, incident within 45 days, clear liability, unrepresented only."
                       className="w-full bg-[#F8FAFD] border border-blue-200/80 rounded-xl p-3 text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0052FF] transition-colors"
                     />
                   </div>

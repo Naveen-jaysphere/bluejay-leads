@@ -24,11 +24,10 @@ export interface FaqItem {
 
 export interface QuoteFormData {
   name: string;
-  companyName: string;
+  firm: string;
   workEmail: string;
   phone: string;
-  targetRegion: string;
-  industry: string;
+  primaryState: string;
   monthlyVolume: string;
-  notes: string;
+  caseTypesAndCriteria: string;
 }

@@ -34,9 +34,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span>Operated by Jaysphere LLC</span>
               </div>
             </div>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Blue Jay Leads empowers growing companies and sales teams with exclusive, pre-qualified business opportunities. Operated by Jaysphere LLC. Zero retainers. Pure verified performance.
-            </p>
           </div>
 
           {/* Site Pages Navigation */}
