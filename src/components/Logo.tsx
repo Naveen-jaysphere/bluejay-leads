@@ -23,22 +23,16 @@ export const Logo: React.FC<LogoProps> = ({
   const isLight = variant === 'light';
 
   return (
-    <div className={`flex flex-col justify-center select-none ${className}`}>
-      <div className="flex items-baseline tracking-tight font-sans">
-        <span
-          className={`font-black tracking-tight ${textSizes[size]} ${
-            isLight ? 'text-[#0A1938]' : 'text-white'
-          }`}
-        >
-          Blue Jay
-        </span>
-        <span className={`font-black tracking-tight ${textSizes[size]} text-[#0052FF] ml-1.5`}>
-          Leads
+    <div className={`inline-flex flex-col justify-center select-none whitespace-nowrap shrink-0 ${className}`}>
+      <div className="inline-flex items-center tracking-tight font-sans whitespace-nowrap">
+        <span className={`font-black tracking-tight whitespace-nowrap ${textSizes[size]}`}>
+          <span className={isLight ? 'text-[#0A1938]' : 'text-white'}>Blue Jay</span>
+          <span className="text-[#0052FF] ml-1.5">Leads</span>
         </span>
       </div>
       {showTagline && (
         <span
-          className={`text-[11px] sm:text-xs tracking-tight font-medium ${
+          className={`text-[11px] sm:text-xs tracking-tight font-medium whitespace-nowrap mt-0.5 ${
             isLight ? 'text-slate-600' : 'text-slate-300'
           }`}
         >

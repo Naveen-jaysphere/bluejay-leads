@@ -41,73 +41,73 @@ export const BUSINESS_INDUSTRIES = [
 export const FUNNEL_STAGES: FunnelStage[] = [
   {
     count: 100,
-    label: "Opportunities Generated",
-    detail: "High-intent search, social, and display traffic captured directly through our media funnels.",
-    dropLabel: "-38 Disqualified at Form",
-    dropReason: "Invalid contact info · Out-of-territory · No immediate budget or need"
+    label: "Claimant Inquiries Generated",
+    detail: "High-intent search, social, and display traffic captured directly through our compliant legal intake funnels.",
+    dropLabel: "-38 Disqualified at Intake Form",
+    dropReason: "Out of state jurisdiction · Incident past statute of limitations · Invalid contact info"
   },
   {
     count: 62,
-    label: "Intake Screened",
-    detail: "Automated verification checking for purchase timeline, company size, and authority.",
-    dropLabel: "-28 Disqualified on Call",
-    dropReason: "Non-decision maker · Already under contract with competitor"
+    label: "Liability & Coverage Screened",
+    detail: "Automated verification assessing incident date, injury severity, liability indication, and representation status.",
+    dropLabel: "-28 Disqualified on Intake Verification",
+    dropReason: "Already represented by counsel · Disputed or zero liability · Minor or unverified injury"
   },
   {
     count: 34,
-    label: "Live Specialist Verified",
-    detail: "Spoken with by a live verification coordinator; requirements and mobile OTP confirmed.",
-    dropLabel: "-22 Filtered for Custom ICP",
-    dropReason: "Outside your company's custom geographic radius or deal-size thresholds"
+    label: "Live Legal Intake Specialist Verified",
+    detail: "Spoken with by a live US-based intake coordinator; incident details, injury timeline, and mobile OTP confirmed.",
+    dropLabel: "-22 Filtered for Firm-Specific Criteria",
+    dropReason: "Outside your firm's targeted counties or case-specific minimum claim thresholds"
   },
   {
     count: 12,
-    label: "Delivered to Your Pipeline",
-    detail: "100% exclusive, pre-qualified business opportunity routed directly into your CRM or live sales line."
+    label: "Delivered to Your Law Firm",
+    detail: "100% exclusive, pre-qualified legal claimant routed directly into your legal CRM or live intake desk."
   }
 ];
 
 export const LEAD_SERVICES: LeadTier[] = [
   {
     id: "exchange",
-    name: "Blue Jay Exchange™",
-    badge: "Most Popular",
-    description: "On-demand, pre-qualified business opportunities delivered in real-time to your CRM and sales team.",
+    name: "Blue Jay Legal Exchange™",
+    badge: "Most Popular for Firms",
+    description: "Real-time, pre-screened legal claimant inquiries delivered directly into your firm's CRM or intake queue.",
     features: [
-      "100% Exclusive — 1 buyer per opportunity, never resold",
-      "Delivered in under 24 hours directly via API / CRM",
-      "Verified contact details, budget range, and timeline",
-      "Automated replacement credit for non-qualifying leads"
+      "100% Exclusive — 1 firm per claimant, never shared or co-brokered",
+      "Real-time delivery under 24 hours directly via legal CRM webhooks",
+      "Screened for clear liability, incident date, and no existing counsel",
+      "Automatic replacement credit for disqualified claimants within 72 hours"
     ],
-    recommendedFor: "Growing businesses seeking consistent sales pipeline without agency retainers.",
+    recommendedFor: "Law firms and boutique practices seeking a steady stream of retainable cases without monthly agency fees.",
     turnaround: "Active in 24-48 Hours"
   },
   {
     id: "intake",
-    name: "Blue Jay Warm Transfer™",
-    badge: "Highest Conversion",
-    description: "Live inbound phone calls connected directly to your sales reps while the decision-maker is eager to buy.",
+    name: "Blue Jay Live Legal Transfer™",
+    badge: "Highest Retainer Conversion",
+    description: "Live inbound claimant transfers connected directly to your intake staff while the prospective client is on the phone.",
     features: [
-      "Specialist dials the prospect within 3 minutes of submission",
-      "Key requirements and budget verified prior to transfer",
-      "Direct phone bridge to your available account executive",
-      "Zero phone tag — speak to active buyers immediately"
+      "Intake coordinator dials the claimant within 2 minutes of inquiry",
+      "Injury details, incident date, and representation status confirmed",
+      "Direct three-way phone bridge to your firm's intake department",
+      "Eliminate phone tag — sign retainers on the initial call"
     ],
-    recommendedFor: "Companies with an inside sales team ready to close deals on the first conversation.",
+    recommendedFor: "Plaintiff, personal injury, and employment firms with dedicated intake teams ready to sign retainers immediately.",
     turnaround: "Live Call Delivery"
   },
   {
     id: "scale",
-    name: "Blue Jay Dedicated™",
-    badge: "Enterprise Scale",
-    description: "Tailored multi-market lead campaigns built to your exact Ideal Customer Profile (ICP) and volume requirements.",
+    name: "Blue Jay Dedicated Mass Tort™",
+    badge: "Multi-Jurisdiction & Mass Tort",
+    description: "Tailored multi-state claimant campaigns engineered to your firm's exact qualification criteria and volume pacing.",
     features: [
-      "Custom geographic radii, revenue size, and role criteria",
-      "Native CRM integration (HubSpot, Salesforce, Zoho, Zapier)",
-      "Dedicated account strategist and flexible daily volume pacing",
-      "Volume-tiered pricing and customized insertion orders"
+      "Custom state/county footprints, statute cutoff dates, and diagnosis criteria",
+      "Direct legal CRM integration (Lead Docket, Filevine, Clio, Litify, Salesforce)",
+      "Dedicated legal account strategist and flexible daily intake caps",
+      "Volume-tiered pricing and customized firm insertion orders"
     ],
-    recommendedFor: "Established enterprises targeting 50+ qualified sales opportunities per month.",
+    recommendedFor: "Established litigation firms and mass tort practices requiring 50+ screened claimants per month.",
     turnaround: "Custom Insertion Order"
   }
 ];
@@ -115,55 +115,55 @@ export const LEAD_SERVICES: LeadTier[] = [
 export const PROCESS_STEPS = [
   {
     step: "01",
-    title: "We Buy the Click, Not the Lead",
-    desc: "Our own ad spend, targeted landing pages, and search campaigns. Zero aggregators or middleman brokers reselling recycled data."
+    title: "Direct Search & Claimant Intent Funnels",
+    desc: "We fund 100% of the media acquisition across high-intent legal search and compliant landing pages. Zero recycled leads or aggregators."
   },
   {
     step: "02",
-    title: "Direct Transfer or CRM Post",
-    desc: "Warm-transferred live to your sales rep or posted instantly into HubSpot, Salesforce, Zoho, or your custom webhook."
+    title: "Live Warm Transfer or Legal CRM Post",
+    desc: "Warm-transferred live to your intake department or posted instantly into Lead Docket, Filevine, Clio Grow, Litify, or custom webhook."
   },
   {
     step: "03",
-    title: "Closed-Loop Conversion Tuning",
-    desc: "Your sales feedback loops back into our targeting algorithms, continuously refining opportunity quality week over week."
+    title: "Continuous Retainer Feedback Tuning",
+    desc: "Your signed retainer outcomes loop back into our intake screening algorithms, continuously refining claimant quality and case value."
   }
 ];
 
 export const FAQS: FaqItem[] = [
   {
     category: "Quality & Exclusivity",
-    question: "Are opportunities 100% exclusive?",
-    answer: "Yes. Every qualified inquiry is routed to exactly one business. We never resell, recycle, or auction the same prospect to your competitors."
+    question: "Are claimant inquiries 100% exclusive to our law firm?",
+    answer: "Yes. Every qualified inquiry is routed to exactly one law firm. We strictly reject the aggregator model and never resell, recycle, or auction the same claimant to your competitors."
   },
   {
     category: "Quality & Exclusivity",
-    question: "What happens if a delivered lead does not meet our agreed criteria?",
-    answer: "You have full dispute protection. Simply flag the lead in your client portal with the reason within your 72-hour review window. Approved returns automatically credit your balance for a replacement opportunity."
+    question: "What happens if a delivered claimant does not meet our firm's criteria?",
+    answer: "You are fully protected. If a delivered claimant already has existing counsel, is past the statute of limitations, or gave inaccurate incident details, simply flag the lead within your 72-hour review window for an automatic replacement credit."
   },
   {
     category: "Quality & Exclusivity",
-    question: "How do you ensure TCPA compliance and consumer consent?",
-    answer: "Every lead generated by Jaysphere LLC carries an audit-ready compliance record featuring cryptographic timestamps, IP telemetry, and explicit 1-to-1 prior express written consent in full conformity with the FCC 1:1 Consent Mandate, TCPA (47 U.S.C. § 227), and FTC regulations."
+    question: "How do you ensure ethical compliance, bar advertising rules, and TCPA consent?",
+    answer: "Every lead generated by Jaysphere LLC carries an audit-ready compliance record featuring cryptographic timestamps, IP telemetry, Jornaya / TrustedForm certificates, and explicit 1-to-1 prior express written consent in full compliance with the FCC 1:1 Consent Mandate, TCPA (47 U.S.C. § 227), and applicable state bar advertising guidelines."
   },
   {
     category: "Delivery & Tech",
-    question: "How are leads delivered into our existing workflow?",
-    answer: "We support instant webhooks and native integrations with major CRMs including HubSpot, Salesforce, Zoho, Pipedrive, ActiveCampaign, Slack, and Zapier, as well as encrypted email and live warm phone transfers."
+    question: "Which legal CRMs and intake software do you integrate with?",
+    answer: "We support instant webhooks and integrations with major legal CRMs including Lead Docket, Filevine, Clio Grow, Litify, Lawmatics, Salesforce, HubSpot, and Zapier, as well as live warm phone transfers and secure encrypted email delivery."
   },
   {
     category: "Delivery & Tech",
-    question: "How fast can we launch and start receiving opportunities?",
-    answer: "Once your targeting criteria and volume caps are locked, campaigns typically go live and deliver initial verified prospects within 24 to 48 hours."
+    question: "How fast can our firm launch and begin receiving claimant inquiries?",
+    answer: "Once your target practice areas, jurisdictions, and qualification criteria are confirmed, campaigns go live and begin delivering initial screened claimants within 24 to 48 hours."
   },
   {
     category: "Billing & Policy",
-    question: "How does billing and pricing work?",
-    answer: "We operate on a transparent pay-per-qualified-lead model with zero recurring monthly agency management retainers. You fund a drawdown balance or operate on approved credit terms."
+    question: "How does billing and pricing work for law firms?",
+    answer: "We operate on a transparent pay-per-qualified-claimant model with zero upfront monthly agency retainers or management fees. You only pay for claimants who meet your firm's explicit qualification checklist."
   },
   {
     category: "Billing & Policy",
-    question: "Are there long-term contracts or cancellation fees?",
-    answer: "None. You can adjust your daily volume, pause during holidays, or cancel anytime with zero contractual penalties."
+    question: "Are there long-term contracts or cancellation penalties?",
+    answer: "None. You can adjust your daily intake volume, pause intake when your calendar or trial schedule is full, or cancel anytime with zero contractual penalties."
   }
 ];

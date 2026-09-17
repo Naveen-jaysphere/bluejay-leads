@@ -10,23 +10,23 @@ export const PainPoints: React.FC<PainPointsProps> = ({ onGetLeadsClick }) => {
     {
       num: "01",
       icon: DollarSign,
-      title: "Overpaying for Broad Marketing Agencies",
-      desc: "Spending $5,000–$15,000+ each month on generic retainers and vanity impressions with zero guaranteed sales conversations or closed revenue.",
-      solution: "Pay strictly per qualified lead. Zero monthly retainers."
+      title: "Overpaying for Broad Legal Retainer Agencies",
+      desc: "Spending $5,000–$15,000+ each month on agency retainers and vague PPC impressions while bearing all the financial risk with zero guaranteed signed retainers.",
+      solution: "Pay strictly per qualified claimant inquiry. Zero monthly agency retainers."
     },
     {
       num: "02",
       icon: PhoneOff,
-      title: "Shared Leads Exhausted by Competitors",
-      desc: "Buying from aggregators who resell the same contact data to 5 different companies, resulting in frustrated prospects who refuse to answer the phone.",
-      solution: "100% exclusive routing. Exactly one business per opportunity."
+      title: "Shared Inquiries Sold to Multiple Firms",
+      desc: "Buying from lead aggregators who blast the same claimant info to 4 competing firms, triggering caller fatigue and wasted intake follow-up.",
+      solution: "100% exclusive 1:1 routing. Exactly one law firm per case opportunity."
     },
     {
       num: "03",
       icon: Compass,
-      title: "Unpredictable Sales Pipeline",
-      desc: "Relying on uneven word-of-mouth and seasonal referral swings, leaving your sales capacity underutilized during critical growth quarters.",
-      solution: "Predictable, scalable customer inquiries dialed to your exact capacity."
+      title: "Unscreened Callers Wasting Intake Staff Time",
+      desc: "Intake teams buried by inquiries with pre-existing legal counsel, zero liability, or expired statutes of limitations.",
+      solution: "Multi-point intake screening for liability, jurisdiction, and unrepresented status."
     }
   ];
 
@@ -35,13 +35,13 @@ export const PainPoints: React.FC<PainPointsProps> = ({ onGetLeadsClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#0052FF] font-bold">
-            Common Customer Acquisition Bottlenecks
+            Law Firm Client Acquisition Bottlenecks
           </span>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#0A1938] mt-2">
-            Experiencing Any of These Challenges?
+            Facing Any of These Legal Intake Challenges?
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
-            Traditional marketing agencies and shared lead brokers waste your time and budget. Here is how Blue Jay Leads removes the friction from your business growth.
+            Traditional agency retainers and recycled shared leads drain your intake budget. Here is how Blue Jay Leads delivers verified, retainable case opportunities directly to your firm.
           </p>
         </div>
 

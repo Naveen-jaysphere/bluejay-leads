@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, PageId } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
+import { VerticalsPage } from './pages/VerticalsPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 
@@ -30,6 +31,13 @@ export default function App() {
         {currentPage === 'home' && (
           <HomePage
             onNavigateToContact={(plan) => navigateTo('contact', plan)}
+            onNavigateToVerticals={() => navigateTo('verticals')}
+          />
+        )}
+
+        {currentPage === 'verticals' && (
+          <VerticalsPage
+            onSelectVertical={(vertical) => navigateTo('contact', vertical)}
           />
         )}
 

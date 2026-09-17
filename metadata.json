@@ -1,6 +1,6 @@
 {
   "name": "Blue Jay Leads",
-  "description": "Blue Jay Leads connects firms with verified, exclusive business opportunities through compliant pay-per-lead delivery, operated by Jaysphere LLC.",
+  "description": "Blue Jay Leads connects law firms with verified, exclusive qualified opportunities through compliant pay-per-performance legal intake delivery, operated by Jaysphere LLC.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
