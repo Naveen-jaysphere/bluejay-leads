@@ -99,16 +99,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
                     <span>Naveen@bluejayleads.io</span>
                   </a>
                   <p className="text-xs text-slate-700 mt-2 font-medium">
-                    "Most lead providers push cheap leads that go nowhere. What really matters is your actual cost per case."
+                    "Every lead vendor promises hundreds of cheap form fills. What really matters is your actual cost per case."
                   </p>
                 </div>
               </div>
               <div className="space-y-2.5 text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
                 <p>
-                  "At Blue Jay Leads, we care about your cost per case. We're not looking for quick, transactional lead drops—we want to build real, long-term partnerships with your law firm."
+                  "At Blue Jay Leads, we care about your cost per case, which is why we measure our performance by what it actually costs your firm to put a signed case on your docket, not vanity metrics or raw lead volume."
                 </p>
                 <p>
-                  "We stay in touch with your team, look closely at which ads are actually signing cases, and constantly optimize our campaigns around the ads that produce the best results. When an ad brings in great clients, we double down on it. When one doesn't, we drop it. That's how we keep delivering high-quality cases for your practice."
+                  "We work closely with your intake team to track which inquiries actually turn into signed cases. When an ad campaign generates signed retainers, we invest more budget behind it. When one falls short, we turn it off immediately. By tying our advertising directly to your firm's real results, we ensure you consistently receive high quality leads at scale."
                 </p>
               </div>
             </div>

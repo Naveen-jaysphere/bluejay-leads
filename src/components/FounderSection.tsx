@@ -134,13 +134,13 @@ export const FounderSection: React.FC<FounderSectionProps> = () => {
 
               <div className="space-y-2.5 text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                 <p>
-                  A lot of lead providers brag about sending huge batches of cheap leads. But if your intake team is stuck chasing people who never answer or don't qualify, you're just burning staff hours and marketing dollars.
+                  Every lead vendor promises hundreds of cheap form fills. But if those callers never turn into signed clients, your intake team just wastes time chasing dead ends while your marketing budget disappears.
                 </p>
                 <p>
-                  At <strong className="text-[#0A1938] font-semibold">Blue Jay Leads</strong>, we care about your cost per case. We're not interested in quick, transactional lead drops—we want to build real, long-term partnerships with your law firm.
+                  At <strong className="text-[#0A1938] font-semibold">Blue Jay Leads</strong>, we care about your cost per case, which is why we measure our performance by what it actually costs your firm to put a signed case on your docket, not vanity metrics or raw lead volume.
                 </p>
                 <p>
-                  We stay in close touch with your team to see what's happening on your end. We look closely at which ads are actually signing retainers and constantly optimize our campaigns around the ads that produce the best results. When an ad works, we put more fuel behind it; when it doesn't, we drop it. That way, your firm consistently receives high-quality claimants ready to hire you.
+                  We work closely with your intake team to track which inquiries actually turn into signed cases. When an ad campaign generates signed retainers, we invest more budget behind it. When one falls short, we turn it off immediately. By tying our advertising directly to your firm's real results, we ensure you consistently receive high quality leads at scale.
                 </p>
               </div>
             </div>
