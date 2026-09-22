@@ -46,7 +46,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-slate-600">•</span>
               <span className="flex items-center gap-1">
                 <Mail className="w-3.5 h-3.5 text-[#0052FF]" />
-                intake@bluejayleads.com
+                <a href="mailto:Naveen@bluejayleads.io" className="hover:text-white transition-colors">
+                  Naveen@bluejayleads.io
+                </a>
               </span>
             </div>
           </div>
@@ -60,6 +62,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button onClick={() => handleNav('home')} className="hover:text-white transition-colors cursor-pointer">
                   Home
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('verticals')} className="hover:text-white transition-colors cursor-pointer">
+                  Practice Areas & Verticals
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('workers-comp-leads')} className="hover:text-white transition-colors cursor-pointer">
+                  Workers' Compensation Leads
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('employment-law-leads')} className="hover:text-white transition-colors cursor-pointer">
+                  Employment Law Leads
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('lemon-law-leads')} className="hover:text-white transition-colors cursor-pointer">
+                  Lemon Law Leads
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('mva-leads')} className="hover:text-white transition-colors cursor-pointer">
+                  MVA & Auto Accident Leads
                 </button>
               </li>
               <li>

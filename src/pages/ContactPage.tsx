@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuoteSection } from '../components/QuoteSection';
-import { Clock, ShieldCheck, HelpCircle, Scale, CheckCircle2 } from 'lucide-react';
+import { Clock, ShieldCheck, HelpCircle, Scale, CheckCircle2, Mail, Phone } from 'lucide-react';
 
 interface ContactPageProps {
   preselectedPlan?: string;
@@ -22,6 +22,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedPlan }) => 
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Specify your firm's target practice areas, state bar jurisdictions, and monthly caseload goals. We will analyze active inventory and provide exact per-claimant rates and launch schedules within one business day.
           </p>
+
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-700">
+            <a 
+              href="mailto:Naveen@bluejayleads.io" 
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-blue-200 shadow-2xs hover:border-[#0052FF] hover:text-[#0052FF] font-semibold transition-all group"
+            >
+              <Mail className="w-4 h-4 text-[#0052FF] group-hover:scale-110 transition-transform" />
+              <span>Naveen@bluejayleads.io</span>
+            </a>
+            <a 
+              href="tel:6504608438" 
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-blue-200 shadow-2xs hover:border-[#0052FF] hover:text-[#0052FF] font-semibold transition-all group"
+            >
+              <Phone className="w-4 h-4 text-[#0052FF] group-hover:scale-110 transition-transform" />
+              <span>(650) 460-8438</span>
+            </a>
+          </div>
         </div>
       </section>
 

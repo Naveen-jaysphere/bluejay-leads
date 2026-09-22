@@ -549,7 +549,7 @@ export const SampleLeadsSection: React.FC<SampleLeadsSectionProps> = ({
                     </span>
                   </div>
                   <span className="text-[11px] font-semibold text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded">
-                    Workers' Comp
+                    Workers' Compensation
                   </span>
                 </div>
 
@@ -691,11 +691,11 @@ export const SampleLeadsSection: React.FC<SampleLeadsSectionProps> = ({
                   )}
                 </div>
 
-                {/* Specific Qualification Criteria Panel (Workers' Comp) */}
+                {/* Specific Qualification Criteria Panel (Workers' Compensation) */}
                 <div className="p-3.5 rounded-xl bg-[#09152C] border border-blue-500/30 text-xs">
                   <div className="flex items-center gap-1.5 text-blue-300 font-bold mb-2 text-[11px] uppercase tracking-wider font-mono">
                     <CheckSquare className="w-3.5 h-3.5 text-blue-400" />
-                    <span>Workers' Comp Qualification Criteria Panel</span>
+                    <span>Workers' Compensation Qualification Criteria Panel</span>
                   </div>
                   <p className="text-[11px] text-slate-300 mb-2.5">
                     A delivered Workers' Compensation lead must meet all four mandatory qualification standards:

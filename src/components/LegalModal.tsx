@@ -183,7 +183,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 <h4 className="font-bold text-[#0A1938] text-xs uppercase tracking-wider mb-1">Privacy Contact Officer</h4>
                 <p className="text-xs text-slate-600">
                   Jaysphere LLC • Attn: Privacy Compliance Department<br />
-                  Email: <a href="mailto:privacy@jayspherellc.com" className="text-[#0052FF] underline">privacy@jayspherellc.com</a> • Phone: (800) 419-7928
+                  Email: <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] underline">Naveen@bluejayleads.io</a> • Phone: (800) 419-7928
                 </p>
               </div>
             </div>
@@ -250,7 +250,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 <h4 className="font-bold text-[#0A1938] text-xs uppercase tracking-wider mb-1">Corporate Counsel</h4>
                 <p className="text-xs text-slate-600">
                   Jaysphere LLC • Legal Department<br />
-                  Email: <a href="mailto:legal@jayspherellc.com" className="text-[#0052FF] underline">legal@jayspherellc.com</a>
+                  Email: <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] underline">Naveen@bluejayleads.io</a>
                 </p>
               </div>
             </div>
@@ -317,7 +317,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
                 <h4 className="font-bold text-[#0A1938] text-xs uppercase tracking-wider mb-1">Compliance Desk</h4>
                 <p className="text-xs text-slate-600">
                   Questions or audit requests regarding TCPA certificates may be directed to:<br />
-                  <a href="mailto:compliance@jayspherellc.com" className="text-[#0052FF] underline font-mono">compliance@jayspherellc.com</a>
+                  <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] underline font-mono">Naveen@bluejayleads.io</a>
                 </p>
               </div>
             </div>
@@ -428,7 +428,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
 
               <div className="text-xs text-slate-500 space-y-2 pt-2">
                 <p>
-                  You may also transmit suppression requests or consumer inquiries by sending an email with the subject "CCPA Suppression Request" to <a href="mailto:privacy@jayspherellc.com" className="text-[#0052FF] underline">privacy@jayspherellc.com</a> or calling our toll-free regulatory line at (800) 419-7928.
+                  You may also transmit suppression requests or consumer inquiries by sending an email with the subject "CCPA Suppression Request" to <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] underline">Naveen@bluejayleads.io</a> or calling our toll-free regulatory line at (800) 419-7928.
                 </p>
               </div>
             </div>

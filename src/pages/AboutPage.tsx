@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Target, BarChart3, Users2, ArrowRight, Lock, CheckCircle2, Scale, Database } from 'lucide-react';
+import { ShieldCheck, Target, BarChart3, Users2, ArrowRight, Lock, Scale, Database, Mail, User } from 'lucide-react';
 import { Logo } from '../components/Logo';
 import { LegalModal, LegalTab } from '../components/LegalModal';
 
@@ -10,6 +10,7 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalModalTab, setLegalModalTab] = useState<LegalTab>('tcpa');
+  const [imageError, setImageError] = useState(false);
 
   const openLegal = (tab: LegalTab) => {
     setLegalModalTab(tab);
@@ -73,27 +74,42 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
               </div>
             </div>
 
-            {/* Brand Card */}
-            <div className="bg-gradient-to-br from-[#EBF3FC] to-blue-50/80 p-8 sm:p-12 rounded-3xl border border-blue-200/80 shadow-md">
-              <div className="mb-6">
-                <Logo size="lg" variant="light" showTagline />
+            {/* Founder Card */}
+            <div id="about-founder-card" className="bg-gradient-to-br from-[#EBF3FC] to-blue-50/80 p-6 sm:p-8 rounded-2xl border border-blue-200/80 shadow-xs">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-4">
+                <div className="relative shrink-0">
+                  <img
+                    id="about-founder-headshot"
+                    src={localStorage.getItem('founder_photo') || '/linkedinphotogoodquality.jpg'}
+                    alt="Naveen, Founder of Blue Jay Leads"
+                    onError={() => setImageError(true)}
+                    className="w-24 h-32 sm:w-28 sm:h-36 object-cover object-top rounded-xl shadow-xs border border-slate-200 bg-slate-100"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="text-center sm:text-left">
+                  <span className="text-[10px] font-mono font-semibold text-[#0052FF] uppercase tracking-wider">About Us</span>
+                  <h3 id="about-founder-name" className="text-base font-bold text-[#0A1938] mt-0.5">Naveen</h3>
+                  <p id="about-founder-title" className="text-xs font-medium text-slate-500">Founder of Blue Jay Leads</p>
+                  <a
+                    href="mailto:Naveen@bluejayleads.io"
+                    className="inline-flex items-center gap-1 text-[11px] font-mono text-[#0052FF] hover:underline mt-0.5"
+                  >
+                    <Mail className="w-3 h-3 text-[#0052FF]" />
+                    <span>Naveen@bluejayleads.io</span>
+                  </a>
+                  <p className="text-xs text-slate-700 mt-2 font-medium">
+                    "Most lead providers push cheap leads that go nowhere. What really matters is your actual cost per case."
+                  </p>
+                </div>
               </div>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                "Our guiding north star is simple: if a prospective claimant does not represent an actionable, retainable caseload opportunity for our partner law firm, we don't bill for it. Genuine alignment creates enduring partnerships."
-              </p>
-              <div className="space-y-3 pt-5 border-t border-blue-200/60 text-xs sm:text-sm text-slate-700">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0052FF] shrink-0" />
-                  <span>Intent-driven legal search & video acquisition funnels</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0052FF] shrink-0" />
-                  <span>Statute of limitations, liability, and unrepresented status verification</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0052FF] shrink-0" />
-                  <span>Direct webhook push into Lead Docket, Filevine, and Clio Grow</span>
-                </div>
+              <div className="space-y-2.5 text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+                <p>
+                  "At Blue Jay Leads, we care about your cost per case. We're not looking for quick, transactional lead drops—we want to build real, long-term partnerships with your law firm."
+                </p>
+                <p>
+                  "We stay in touch with your team, look closely at which ads are actually signing cases, and constantly optimize our campaigns around the ads that produce the best results. When an ad brings in great clients, we double down on it. When one doesn't, we drop it. That's how we keep delivering high-quality cases for your practice."
+                </p>
               </div>
             </div>
           </div>
@@ -158,16 +174,16 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1938] mb-3">
-            Ready to scale your firm's active caseload?
+            Ready to discuss your firm's claimant intake needs?
           </h2>
           <p className="text-slate-600 text-sm sm:text-base mb-6 max-w-xl mx-auto">
-            Discuss your target practice areas, state bar jurisdictions, and caseload goals with our team.
+            Discuss your target practice areas, state bar jurisdictions, and caseload goals with our team, or email us directly at <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] font-semibold hover:underline">Naveen@bluejayleads.io</a>.
           </p>
           <button
             onClick={onContactClick}
             className="bg-[#0052FF] hover:bg-[#0043D6] text-white font-bold text-sm px-8 py-3.5 rounded-xl shadow-md shadow-blue-500/25 transition-all inline-flex items-center gap-2 cursor-pointer"
           >
-            <span>Request Practice Area Inventory</span>
+            <span>Contact Us</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

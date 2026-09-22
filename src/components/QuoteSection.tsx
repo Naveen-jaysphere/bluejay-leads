@@ -82,7 +82,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                     Thank you, <strong className="text-[#0A1938]">{formData.name}</strong>. We are compiling available claimant volume and criteria feasibility for <strong className="text-[#0A1938]">{formData.firm || 'your firm'}</strong> in <strong className="text-[#0A1938]">{formData.primaryState || 'your state'}</strong>.
                   </p>
                   <p className="text-xs text-[#0052FF] font-mono">
-                    An intake director will connect at {formData.workEmail} within one business day.
+                    An intake director will connect at {formData.workEmail} within one business day. You can also reach us directly at <a href="mailto:Naveen@bluejayleads.io" className="underline font-semibold">Naveen@bluejayleads.io</a>.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -245,7 +245,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                         className="mt-0.5 rounded border-slate-300 text-[#0052FF] focus:ring-[#0052FF] cursor-pointer"
                       />
                       <span className="text-slate-700">
-                        <strong>TCPA Prior Express Written Consent:</strong> By clicking "Request Inventory & Pricing Report", I provide my express written consent authorizing <strong>Blue Jay Leads (operated by Jaysphere LLC)</strong> and its designated specialists to contact me at the phone number and email provided above via phone calls, SMS/text messages, and automated systems regarding legal client acquisition inventory and service quotes. Consent is not a condition of purchasing services. Message and data rates may apply. Reply STOP to cancel at any time. I agree to the{' '}
+                        <strong>TCPA Prior Express Written Consent:</strong> By clicking "Contact Us", I provide my express written consent authorizing <strong>Blue Jay Leads (operated by Jaysphere LLC)</strong> and its designated specialists to contact me at the phone number and email provided above via phone calls, SMS/text messages, and automated systems regarding legal client acquisition inventory and service quotes. Consent is not a condition of purchasing services. Message and data rates may apply. Reply STOP to cancel at any time. I agree to the{' '}
                         <button
                           type="button"
                           onClick={() => openLegalModal('privacy')}
@@ -283,16 +283,16 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({ preselectedPlan }) =
                     className="w-full bg-[#0052FF] hover:bg-[#0043D6] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
                   >
                     {isSubmitting ? (
-                      <span>Analyzing Regional Inventory...</span>
+                      <span>Submitting Request...</span>
                     ) : (
                       <>
-                        <span>Request Inventory & Pricing Report</span>
+                        <span>Contact Us</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
                   </button>
                   <p className="text-[11px] text-center text-slate-500 pt-1">
-                    No agency retainers. Your firm only pays for qualified claimant inquiries delivered by Blue Jay Leads.
+                    No agency retainers. Your firm only pays for qualified claimant inquiries delivered by Blue Jay Leads. Direct contact: <a href="mailto:Naveen@bluejayleads.io" className="text-[#0052FF] font-semibold hover:underline">Naveen@bluejayleads.io</a>
                   </p>
                 </form>
               )}

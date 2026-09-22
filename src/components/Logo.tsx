@@ -36,7 +36,7 @@ export const Logo: React.FC<LogoProps> = ({
             isLight ? 'text-slate-600' : 'text-slate-300'
           }`}
         >
-          Generating Exclusive Qualified Opportunities to Scale Your Firm
+          Exclusive, Pre-Screened Legal Inquiries for Law Firms
         </span>
       )}
     </div>

@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { LEGAL_VERTICALS } from '../data/legalVerticals';
-import { ArrowRight, Search, Check, Scale, Filter, ShieldCheck } from 'lucide-react';
+import { VERTICAL_DETAILS, getVerticalBySlug } from '../data/verticalDetails';
+import { ArrowRight, Search, Check, Scale, Filter, ShieldCheck, Briefcase, Users, Wrench, Car } from 'lucide-react';
 
 interface VerticalsPageProps {
   onSelectVertical: (verticalName: string) => void;
+  onNavigateToVerticalSlug?: (slug: string) => void;
 }
 
-export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical }) => {
+export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical, onNavigateToVerticalSlug }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
@@ -45,6 +47,63 @@ export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical }
     return LEGAL_VERTICALS.reduce((acc, cat) => acc + cat.items.length, 0);
   }, []);
 
+  // Quick slug mapping for items
+  const findSlugForItem = (itemName: string): string | null => {
+    const lower = itemName.toLowerCase();
+    if (lower.includes("worker") || lower.includes("compensation")) return 'workers-comp-leads';
+    if (lower.includes("employment") || lower.includes("wrongful") || lower.includes("wage")) return 'employment-law-leads';
+    if (lower.includes("lemon") || lower.includes("warranty")) return 'lemon-law-leads';
+    if (lower.includes("auto") || lower.includes("mva") || lower.includes("car accident") || lower.includes("vehicle")) return 'mva-leads';
+    if (lower.includes("slip") || lower.includes("premises") || lower.includes("personal injury")) return 'personal-injury-leads';
+    if (lower.includes("mass tort") || lower.includes("defective drug")) return 'mass-tort-leads';
+    if (lower.includes("ssdi") || lower.includes("disability")) return 'ssdi-disability-leads';
+    if (lower.includes("divorce") || lower.includes("custody") || lower.includes("family")) return 'family-law-leads';
+    if (lower.includes("criminal") || lower.includes("dui")) return 'criminal-defense-leads';
+    if (lower.includes("bankruptcy") || lower.includes("debt")) return 'bankruptcy-leads';
+    if (lower.includes("malpractice")) return 'medical-malpractice-leads';
+    return null;
+  };
+
+  const handleItemClick = (itemName: string) => {
+    const slug = findSlugForItem(itemName);
+    if (slug && onNavigateToVerticalSlug) {
+      onNavigateToVerticalSlug(slug);
+    } else {
+      onSelectVertical(itemName);
+    }
+  };
+
+  const featuredVerticalCards = [
+    {
+      slug: 'workers-comp-leads',
+      title: "Workers' Compensation Leads",
+      desc: "Injuries in scope of employment, employer reported, active medical treatment.",
+      badge: "Popular",
+      icon: Briefcase
+    },
+    {
+      slug: 'employment-law-leads',
+      title: "Employment Law Leads",
+      desc: "Wrongful termination, retaliation, discrimination & wage/hour claims.",
+      badge: "High Retainer",
+      icon: Users
+    },
+    {
+      slug: 'lemon-law-leads',
+      title: "Lemon Law Leads",
+      desc: "Persistent vehicle defects, warranty breaches & statutory buyback claims.",
+      badge: "Prescreened",
+      icon: Wrench
+    },
+    {
+      slug: 'mva-leads',
+      title: "MVA & Auto Accident Leads",
+      desc: "Clear adverse fault, recent crash date, verified medical treatment.",
+      badge: "Highest Volume",
+      icon: Car
+    }
+  ];
+
   return (
     <div className="bg-[#F8FAFD] text-slate-800 pb-24">
       {/* Header */}
@@ -59,25 +118,25 @@ export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical }
             Connecting Law Firms with Qualified Opportunities
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Select your firm’s primary practice areas to review active regional inventory, negative qualification criteria, and real-time per-claimant rates.
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Select a dedicated practice area page below or search across our comprehensive catalog of {totalItemCount}+ verified practice area dockets.
           </p>
 
-          {/* Quick Search Bar */}
+          {/* Search Box */}
           <div className="pt-4 max-w-lg mx-auto">
             <div className="relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search practice areas (e.g. MVA, Dog Bite, SSDI, Divorce, Camp Lejeune)..."
-                className="w-full bg-white border border-blue-200/90 rounded-xl pl-10 pr-12 py-3 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0052FF] shadow-xs transition-colors"
+                placeholder="Search practice areas (e.g. workers compensation, lemon law, MVA, wrongful term)..."
+                className="w-full bg-white border border-blue-200 rounded-2xl pl-11 pr-4 py-3 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 shadow-sm focus:outline-none focus:border-[#0052FF]"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-600 cursor-pointer"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600 cursor-pointer"
                 >
                   Clear
                 </button>
@@ -112,6 +171,52 @@ export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical }
               </button>
             )}
           </div>
+        </div>
+      </section>
+
+      {/* Featured Dedicated Vertical Pages */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="mb-4">
+          <span className="text-xs font-mono font-bold text-[#0052FF] uppercase tracking-wider block">
+            Dedicated Practice Area Pages
+          </span>
+          <h2 className="text-xl font-black text-[#0A1938]">
+            Popular Law Firm Verticals
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {featuredVerticalCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <div
+                key={card.slug}
+                onClick={() => onNavigateToVerticalSlug?.(card.slug)}
+                className="bg-white rounded-2xl p-5 border border-blue-100 shadow-2xs hover:border-[#0052FF] hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#0052FF] group-hover:bg-[#0052FF] group-hover:text-white transition-colors flex items-center justify-center">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-[#0052FF] border border-blue-100">
+                      {card.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-[#0A1938] group-hover:text-[#0052FF] transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
+                <div className="pt-4 mt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0052FF]">
+                  <span>Explore Vertical Page</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -157,55 +262,88 @@ export const VerticalsPage: React.FC<VerticalsPageProps> = ({ onSelectVertical }
                   </div>
 
                   <ul className="space-y-1.5 pt-1">
-                    {group.items.map((item, idx) => (
-                      <li key={idx}>
-                        <button
-                          onClick={() => onSelectVertical(item)}
-                          className="w-full text-left text-xs text-slate-700 hover:text-[#0052FF] hover:bg-blue-50/70 p-2 rounded-lg transition-colors flex items-center justify-between group cursor-pointer"
-                        >
-                          <span className="flex items-center gap-2">
-                            <Check className="w-3.5 h-3.5 text-[#0052FF] shrink-0" />
-                            <span className="font-medium">{item}</span>
-                          </span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#0052FF] transition-opacity shrink-0 ml-1" />
-                        </button>
-                      </li>
-                    ))}
+                    {group.items.map((item, idx) => {
+                      const slug = findSlugForItem(item);
+                      return (
+                        <li key={idx}>
+                          <button
+                            onClick={() => handleItemClick(item)}
+                            className="w-full text-left text-xs text-slate-700 hover:text-[#0052FF] hover:bg-blue-50/70 p-2 rounded-lg transition-colors flex items-center justify-between group cursor-pointer"
+                          >
+                            <span className="flex items-center gap-2">
+                              <Check className="w-3.5 h-3.5 text-[#0052FF] shrink-0" />
+                              <span className="font-medium">{item}</span>
+                            </span>
+                            <div className="flex items-center gap-1">
+                              {slug && (
+                                <span className="text-[9px] font-mono text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                  Page
+                                </span>
+                              )}
+                              <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-[#0052FF] transition-opacity shrink-0 ml-1" />
+                            </div>
+                          </button>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
 
                 <div className="mt-6 pt-3.5 border-t border-slate-100">
                   <button
-                    onClick={() => onSelectVertical(group.category)}
+                    onClick={() => handleItemClick(group.category)}
                     className="w-full text-center text-xs font-bold text-[#0052FF] hover:text-[#0043D6] py-2 rounded-xl hover:bg-blue-50 transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                   >
-                    <span>Request Inquiries for {group.category}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Contact Us for {group.category}</span>
+                    <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
               </div>
             ))}
           </div>
         )}
+      </section>
 
-        {/* Global CTA */}
-        <div className="mt-16 text-center bg-white border border-blue-100 rounded-3xl p-8 sm:p-10 max-w-3xl mx-auto shadow-sm">
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center mx-auto text-[#0052FF] mb-4">
-            <Scale className="w-6 h-6" />
+      {/* Compliance & Intake Standard Strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+        <div className="bg-[#0A1938] rounded-3xl p-8 sm:p-10 text-white border border-blue-900 shadow-xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-blue-400 font-mono text-xs font-bold uppercase mb-1">
+                Standard 01
+              </div>
+              <h3 className="text-base font-bold text-white mb-2">
+                100% Exclusive To Your Firm
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Zero shared inquiries. Every claimant is routed only to your firm's intake desk or CRM via real-time webhook.
+              </p>
+            </div>
+
+            <div>
+              <div className="text-blue-400 font-mono text-xs font-bold uppercase mb-1">
+                Standard 02
+              </div>
+              <h3 className="text-base font-bold text-white mb-2">
+                72-Hour Quality Guarantee
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                If any claimant fails verified criteria, has existing counsel, or provides invalid contact details, you receive an automatic replacement credit.
+              </p>
+            </div>
+
+            <div>
+              <div className="text-blue-400 font-mono text-xs font-bold uppercase mb-1">
+                Standard 03
+              </div>
+              <h3 className="text-base font-bold text-white mb-2">
+                Audit-Ready Consent
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Each inquiry includes Jornaya and TrustedForm certificates meeting FCC 1:1 prior express written consent standards.
+              </p>
+            </div>
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-[#0A1938] mb-2">
-            Need Custom Case Underwriting or Multi-State Inventory?
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 mb-6 max-w-xl mx-auto leading-relaxed">
-            We support firm-specific custom qualification checklists including strict liability guidelines, statute of limitations cutoffs, minimum policy limits, and injury severity thresholds.
-          </p>
-          <button
-            onClick={() => onSelectVertical('Custom Law Firm Intake Parameters')}
-            className="bg-[#0052FF] hover:bg-[#0043D6] text-white text-xs sm:text-sm font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all inline-flex items-center gap-2 cursor-pointer"
-          >
-            <span>Configure Your Firm's Intake Criteria</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </section>
     </div>

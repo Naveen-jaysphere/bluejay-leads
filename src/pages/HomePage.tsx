@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { WhyWorkWithUs } from '../components/WhyWorkWithUs';
-import { PainPoints } from '../components/PainPoints';
+import { FounderSection } from '../components/FounderSection';
 import { ProcessSection } from '../components/ProcessSection';
 import { SampleLeadsSection } from '../components/SampleLeadsSection';
 import { IntakeOperationsSection } from '../components/IntakeOperationsSection';
@@ -25,8 +25,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigateToContact, onNavig
       {/* Why Firms Work With Us - 5-Item Feature Grid */}
       <WhyWorkWithUs onNavigateToContact={() => onNavigateToContact()} />
 
-      {/* Pain Points & Challenges */}
-      <PainPoints onGetLeadsClick={() => onNavigateToContact()} />
+      {/* About the Founder - Cost Per Case Philosophy */}
+      <FounderSection onContactClick={() => onNavigateToContact()} />
 
       {/* Operational 4-Step Intake Process */}
       <ProcessSection />
@@ -71,7 +71,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigateToContact, onNavig
               onClick={() => onNavigateToContact()}
               className="bg-[#0052FF] hover:bg-[#0043D6] text-white font-bold text-base px-9 py-4 rounded-xl shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 transition-all inline-flex items-center gap-2.5 cursor-pointer group"
             >
-              <span>Request Case Inventory & Pricing</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetLeadsClick, onViewVerticals }) 
               onClick={onGetLeadsClick}
               className="w-full sm:w-auto bg-[#0052FF] hover:bg-[#0043D6] text-white font-bold text-base px-8 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center justify-center gap-2 group cursor-pointer"
             >
-              <span>Request Practice Area Inventory</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetLeadsClick, onViewVerticals }) 
                     activeSampleTab === 'workers' ? 'bg-[#0052FF] text-white font-bold' : 'text-slate-300 hover:text-white'
                   }`}
                 >
-                  Workers' Comp
+                  Workers' Compensation
                 </button>
                 <button
                   onClick={() => setActiveSampleTab('employment')}
@@ -228,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetLeadsClick, onViewVerticals }) 
                 </div>
                 <div className="flex items-center gap-1.5 font-semibold text-[#0052FF]">
                   <Database className="w-3.5 h-3.5" />
-                  <span>Instant Webhook Delivery to Legal CRM (Lead Docket / Filevine / Clio)</span>
+                  <span>Direct Delivery to Your CRM</span>
                 </div>
               </div>
             </div>
@@ -237,17 +237,17 @@ export const Hero: React.FC<HeroProps> = ({ onGetLeadsClick, onViewVerticals }) 
 
         {/* Legal CRM Integration Compatibility Ribbon */}
         <div className="mt-14 pt-8 border-t border-blue-200/50 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">
-            Instant API & Webhook Synchronization with Law Firm Practice Management
+          <p className="text-xs font-medium text-slate-500 mb-3">
+            Integrates with your CRM via API & Webhooks
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-bold text-slate-700">
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Lead Docket</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Filevine</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Clio Grow</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Litify</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Lawmatics</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Salesforce Legal</span>
-            <span className="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200/80 shadow-2xs">Zapier Webhooks</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs font-semibold text-slate-600">
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Lead Docket</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Filevine</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Clio</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Litify</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Lawmatics</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Salesforce</span>
+            <span className="px-3 py-1 rounded-md bg-white border border-slate-200 shadow-2xs">Email & Webhook</span>
           </div>
         </div>
 
