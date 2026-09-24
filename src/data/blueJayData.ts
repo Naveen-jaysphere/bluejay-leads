@@ -160,10 +160,5 @@ export const FAQS: FaqItem[] = [
     category: "Billing & Policy",
     question: "How does billing and pricing work for law firms?",
     answer: "We operate on a transparent pay-per-qualified-claimant model with zero upfront monthly agency retainers or management fees. You only pay for claimants who meet your firm's explicit qualification checklist."
-  },
-  {
-    category: "Billing & Policy",
-    question: "Are there long-term contracts or cancellation penalties?",
-    answer: "None. You can adjust your daily intake volume, pause intake when your calendar or trial schedule is full, or cancel anytime with zero contractual penalties."
   }
 ];
