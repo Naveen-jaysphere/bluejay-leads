@@ -5,15 +5,21 @@ interface FounderSectionProps {
   onContactClick?: () => void;
 }
 
+const CDN_FOUNDER_PHOTO = 'https://assets.cdn.filesafe.space/MCXdJPoZIhoqrTUf6twq/media/6ab5400e3dbd5f2bbbac7283.jpg';
+const LOCAL_FOUNDER_PHOTO = '/founder-photo.jpg';
+
 export const FounderSection: React.FC<FounderSectionProps> = () => {
-  const [photoSrc, setPhotoSrc] = useState<string>('/linkedinphotogoodquality.jpg');
+  const [photoSrc, setPhotoSrc] = useState<string>(() => {
+    const saved = typeof window !== 'undefined' ? localStorage.getItem('founder_photo') : null;
+    return saved && (saved.startsWith('data:') || saved.startsWith('http')) ? saved : LOCAL_FOUNDER_PHOTO;
+  });
   const [isLoaded, setIsLoaded] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('founder_photo');
-    if (saved) {
+    if (saved && (saved.startsWith('data:') || saved.startsWith('http'))) {
       setPhotoSrc(saved);
       setIsLoaded(true);
     }
@@ -82,7 +88,9 @@ export const FounderSection: React.FC<FounderSectionProps> = () => {
                   alt="Naveen, Founder of Blue Jay Leads"
                   onLoad={() => setIsLoaded(true)}
                   onError={() => {
-                    if (!localStorage.getItem('founder_photo')) {
+                    if (photoSrc !== CDN_FOUNDER_PHOTO) {
+                      setPhotoSrc(CDN_FOUNDER_PHOTO);
+                    } else {
                       setIsLoaded(false);
                     }
                   }}

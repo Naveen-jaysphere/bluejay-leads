@@ -7,10 +7,16 @@ interface AboutPageProps {
   onContactClick: () => void;
 }
 
+const CDN_FOUNDER_PHOTO = 'https://assets.cdn.filesafe.space/MCXdJPoZIhoqrTUf6twq/media/6ab5400e3dbd5f2bbbac7283.jpg';
+const LOCAL_FOUNDER_PHOTO = '/founder-photo.jpg';
+
 export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalModalTab, setLegalModalTab] = useState<LegalTab>('tcpa');
-  const [imageError, setImageError] = useState(false);
+  const [photoSrc, setPhotoSrc] = useState<string>(() => {
+    const saved = typeof window !== 'undefined' ? localStorage.getItem('founder_photo') : null;
+    return saved && (saved.startsWith('data:') || saved.startsWith('http')) ? saved : LOCAL_FOUNDER_PHOTO;
+  });
 
   const openLegal = (tab: LegalTab) => {
     setLegalModalTab(tab);
@@ -80,9 +86,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onContactClick }) => {
                 <div className="relative shrink-0">
                   <img
                     id="about-founder-headshot"
-                    src={localStorage.getItem('founder_photo') || '/linkedinphotogoodquality.jpg'}
+                    src={photoSrc}
                     alt="Naveen, Founder of Blue Jay Leads"
-                    onError={() => setImageError(true)}
+                    onError={() => {
+                      if (photoSrc !== CDN_FOUNDER_PHOTO) {
+                        setPhotoSrc(CDN_FOUNDER_PHOTO);
+                      }
+                    }}
                     className="w-24 h-32 sm:w-28 sm:h-36 object-cover object-top rounded-xl shadow-xs border border-slate-200 bg-slate-100"
                     referrerPolicy="no-referrer"
                   />
